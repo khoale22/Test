@@ -10,5 +10,7 @@
 <h1>XIn chao</h1>
  <h1>${user.userName}</h1>
  <h2>${user.getRole().getRoleName()}</h2>
+ 
+ 
 </body>
 </html>

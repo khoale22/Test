@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.Iterator;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.model.Result;
 import com.model.User;
 import com.service.LoginService;
 
@@ -39,10 +42,16 @@ public class LoginController {
 			}
 			if (user.getRole().getRoleName().equals("student")) {
 				//page = "student";
+				session.setAttribute("userId", username);
 				session.setAttribute("user", user);
 				//return "student";
-				user.getResults().iterator().hasNext();
-                 return "redirect:/student";
+				//user.getResults().iterator().hasNext(); bi loi?? @OneToMany(mappedBy="department", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+                 // https://stackoverflow.com/questions/21574236/org-hibernate-lazyinitializationexception-could-not-initialize-proxy-no-sess
+//				Iterator<Result> iterator = user.getResults().iterator();
+//				while(iterator.hasNext()) {
+//					 System.out.print(iterator.next() + "\t");
+//				}
+				return "redirect:/student";
 			}
 		}
 

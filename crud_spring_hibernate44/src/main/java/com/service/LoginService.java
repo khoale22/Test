@@ -2,6 +2,7 @@ package com.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.LoginDao;
 import com.model.Role;
@@ -11,6 +12,7 @@ import com.model.User;
 public class LoginService {
 	@Autowired
 	LoginDao loginDao;
+
 
 	public User loginUser(String userId, String pass) {
 
@@ -26,5 +28,5 @@ public class LoginService {
 		}
 		return null;
 	}
-
+     
 }
