@@ -26,6 +26,11 @@
 				<td>Pass</td>
 				<td>${user.userPass}</td>
 			</tr>
+			</tr>
+			<tr>
+				<td>Pass</td>
+				<td>${user.role.roleName}</td>
+			</tr>
 		</table>
 		
 		

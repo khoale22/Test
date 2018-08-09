@@ -27,17 +27,18 @@ public class LoginController {
 	public String loginForm(@RequestParam("username") String username, @RequestParam("pass") String pass, HttpSession session) {
 
 		User user = loginService.loginUser(username, pass);
-		String page = "login";
+	//	String page = "login";
 		if (user == null) {
 			System.out.println("why null");
 		}
 		if (user != null) {
 			if (user.getRole().getRoleName().equals("teacher")) {
-				page = "teacher";
+				//page = "teacher";
 				System.out.println(user.getRole().getRoleName());
 				// return "teacher";
+				session.setAttribute("userId", username);
 				session.setAttribute("user", user);
-				//return "rediect:/teacher";
+				return "redirect:/teacher";
 
 			}
 			if (user.getRole().getRoleName().equals("student")) {
