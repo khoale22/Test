@@ -43,6 +43,7 @@ public class LoginController {
 			}
 			if (user.getRole().getRoleName().equals("student")) {
 				//page = "student";
+				System.out.println(user.getRole().getRoleName());
 				session.setAttribute("userId", username);
 				session.setAttribute("user", user);
 				//return "student";

@@ -34,6 +34,6 @@ public class StudentController {
 //		System.out.println("get dc khong :" + b); // ok
 		String userId =	(String) session.getAttribute("userId");
 		mm.addAttribute("list",studentService.resultStudent(userId) );
-		return "test";	
+		return "result";	
 	}
 }

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<h1>THONG TIN SINH VIEN</h1>
+		<h1>INFOMATION</h1>
 		<table border="1" >
 			<tr>
 				<td>Name</td>

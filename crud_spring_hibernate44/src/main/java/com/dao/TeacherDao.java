@@ -16,10 +16,11 @@ public class TeacherDao {
 	
 	
 	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<User> getAllStudent(String userId){
-		Query query =  sessionfactory.getCurrentSession().createQuery("from User where userId not in ('user1')");
-		//query.setParameter("userId", userId);
+		Query query =  sessionfactory.getCurrentSession().createQuery("from User where userId not in(:userId)");
+		query.setParameter("userId", userId);
 		return query.list();
 	}
 	

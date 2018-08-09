@@ -9,34 +9,18 @@
 </head>
 <body>
 	<h1>teacher</h1>
-	<c:forEach var="user" items="${listStudent}">
-	</c:forEach>
+
 	<table border="1">
-		<tr>
-			<td>UserId</td>
-			<td>${user.userId}</td>
-		</tr>
-		<tr>
-			<td>UserName</td>
-			<td>${user.userName}</td>
-		</tr>
-		<tr>
-			<td>userTelephone</td>
-			<td>${user.userTelephone}</td>
-		</tr>
-		<tr>
-			<td>userAddress</td>
-			<td>${user.userAddress}</td>
-		</tr>
-		<tr>
-			<td>userPass</td>
-			<td>${user.userPass}</td>
-		</tr>
-		<tr>
-			<td>Action</td>
-			<td><a href="#"> ShowInfo</a> </td>
-		</tr>
-		
+		<c:forEach var="user" items="${listStudent}">
+			<tr>
+				<td>${user.userId}</td>
+				<td>${user.userName}</td>
+				<td>${user.userTelephone}</td>
+				<td>${user.userAddress}</td>
+				<td>${user.userPass}</td>
+				<td><a href="showInfo?userId=${user.userId}"> showInfo</a></td>
+			</tr>
+		</c:forEach>
 	</table>
 </body>
 </html>
