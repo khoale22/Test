@@ -14,11 +14,11 @@
 
 	
 		<table border="1" width="100px"> 
-		<c:forEach var="result" items="${listresult}">
+		<c:forEach var="result" items="${listresult}" >
 			<tr>
 				<td>${result.subject.subjectName}</td>
 				<td>${result.result}</td>
-				<td><a href="edit" >edit</a> </td>
+				<td><a href="editResult?userId=${result.user.userId}" >edit</a> </td>
 			</tr>
 			</c:forEach>
 		</table>

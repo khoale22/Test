@@ -36,4 +36,6 @@ public class StudentController {
 		mm.addAttribute("list",studentService.resultStudent(userId) );
 		return "result";	
 	}
+	
+	
 }

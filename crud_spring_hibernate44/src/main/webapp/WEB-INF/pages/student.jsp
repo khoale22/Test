@@ -31,9 +31,7 @@
 				<td>Pass</td>
 				<td>${user.role.roleName}</td>
 			</tr>
-		</table>
-		
-		
+		</table>	
 		<a href="abc">dfsfdhj</a>
 </body>
 </html>

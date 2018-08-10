@@ -24,7 +24,14 @@
 		<tr>
 			<td><input type="submit" value="Login"></td>
 		</tr>
-	</table>
+	</table>	
 </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<a href="testjoin">click</a>
 </body>
 </html>
