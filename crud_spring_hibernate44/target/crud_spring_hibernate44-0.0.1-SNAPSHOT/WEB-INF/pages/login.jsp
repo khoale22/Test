@@ -12,7 +12,7 @@
 	<table>
 		<tr>
 			<td><label>UserId : </label></td>
-			<td><input type="text" placeholder="enter your username"
+			<td><input type="text" placeholder="enter your username2"
 				name="username" required></td>
 		</tr>
 		<tr>
@@ -24,7 +24,8 @@
 		<tr>
 			<td><input type="submit" value="Login"></td>
 		</tr>
-	</table>
+	</table>	
 </form>
+
 </body>
 </html>

@@ -35,6 +35,7 @@
 		<property name="url" value="${database.url}"></property>
 		<property name="username" value="${database.user}"></property>
 		<property name="password" value="${database.password}"></property>
+		
 	</bean>
 
 	<!-- Hibernate SessionFactory -->
