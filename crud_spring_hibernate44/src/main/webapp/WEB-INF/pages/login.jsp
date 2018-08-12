@@ -12,7 +12,7 @@
 	<table>
 		<tr>
 			<td><label>UserId : </label></td>
-			<td><input type="text" placeholder="enter your username"
+			<td><input type="text" placeholder="enter your username2"
 				name="username" required></td>
 		</tr>
 		<tr>
@@ -26,12 +26,6 @@
 		</tr>
 	</table>	
 </form>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<a href="testjoin">click</a>
 </body>
 </html>

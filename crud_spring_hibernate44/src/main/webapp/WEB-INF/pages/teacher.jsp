@@ -18,7 +18,10 @@
 				<td>${user.userTelephone}</td>
 				<td>${user.userAddress}</td>
 				<td>${user.userPass}</td>
+				<td>${user.userPass}</td>
+				<td>${user.role.roleName}</td>
 				<td><a href="showInfo?userId=${user.userId}"> showInfo</a></td>
+				<td><a href="deleteStudent?userId=${user.userId}"> delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

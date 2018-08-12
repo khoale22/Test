@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.model.Result;
+import com.model.User;
 
 @Repository
 public class StudentDao {
@@ -37,5 +38,26 @@ public class StudentDao {
 
 	}
 	
-
+	@Transactional
+	public Result eachResultStudent(String subjectName , String userId) {
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery("from Result where subject.subjectName=:subjectName  and user.userId =:userId");
+		query.setParameter("subjectName", subjectName);
+		query.setParameter("userId", userId);
+		return (Result) query.uniqueResult();
+		
+	}
+	
+	@Transactional
+	public Result update(Result result) {
+		 sessionFactory.getCurrentSession().update(result);
+		 return result;
+	}
+	@Transactional
+	public void deleteUser2(String userId) {
+		String hql = "delete from User where userId=:userId";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setParameter("userId", userId);
+		query.executeUpdate(); 
+			
+	}
 }
