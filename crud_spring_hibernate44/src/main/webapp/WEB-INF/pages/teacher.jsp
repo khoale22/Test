@@ -5,25 +5,43 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>teacher</h1>
+	<h1 align="center">HELLO ADMIN</h1>
+	<div class="container">	
+		<table class="table table-striped">	
+			<thead>
+				<tr>
+					<th>USERID</th>
+					<th>NAME</th>
+					<th>TELEPHONE</th>
+					<th>ADDRESS</th>
+					<th>PASS</th>
+					<th>ACTION</th>
+					<th>ACTION</th>
 
-	<table border="1">
-		<c:forEach var="user" items="${listStudent}">
-			<tr>
-				<td>${user.userId}</td>
-				<td>${user.userName}</td>
-				<td>${user.userTelephone}</td>
-				<td>${user.userAddress}</td>
-				<td>${user.userPass}</td>
-				<td>${user.userPass}</td>
-				<td>${user.role.roleName}</td>
-				<td><a href="showInfo?userId=${user.userId}"> showInfo</a></td>
-				<td><a href="deleteStudent?userId=${user.userId}"> delete</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+				</tr>
+			</thead>
+			<c:forEach var="user" items="${listStudent}">
+			<tbody>
+				<tr>
+					<td>${user.userId}</td>
+					<td>${user.userName}</td>
+					<td>${user.userTelephone}</td>
+					<td>${user.userAddress}</td>
+					<td>${user.userPass}</td>
+					<td><a href="showInfo?userId=${user.userId}"> showInfo</a></td>
+					<td><a href="deleteStudent?userId=${user.userId}"> delete</a></td>
+				</tr>
+			</tbody>
+			</c:forEach>
+		</table>
+	</div>
+
 </body>
 </html>

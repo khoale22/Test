@@ -16,11 +16,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%
-		if (session.getAttribute("error") != null) {
-			String error = (String) session.getAttribute("error");
-		}
-	%>
 	<h1 align="center">LOGIN</h1>
 	<div style="width: 25%; margin: 0 auto;">
 		<div class="account-wall">
@@ -40,18 +35,14 @@
 				</div>
 			</form>
 
-		</div>
+		</div>		
 		<div class="alert alert-warning alert-dismissible">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			<strong>${error}</strong> 
+			<strong>Warning!</strong> ${error}
 		</div>
 
 	</div>
-   <%
-		if (session.getAttribute("error") != null) {
-			session.invalidate();
-		}
-	%>
 
+	
 </body>
 </html>

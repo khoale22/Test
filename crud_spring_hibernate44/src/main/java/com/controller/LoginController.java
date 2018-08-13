@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,12 +25,16 @@ public class LoginController {
 	LoginService loginService;
 
 	@RequestMapping(value = "role", method = RequestMethod.POST)
-	public String loginForm(@RequestParam("username") String username, @RequestParam("pass") String pass, HttpSession session) {
+	public String loginForm(@RequestParam("username") String username, @RequestParam("pass") String pass, HttpSession session ,ModelMap m2) {
 
 		User user = loginService.loginUser(username, pass);
 	//	String page = "login";
 		if (user == null) {
 			System.out.println("why null");
+			String error = "Your pass or userid are not valid ";
+			session.setAttribute("error",  error);
+			return "redirect:/";
+			
 		}
 		if (user != null) {
 			if (user.getRole().getRoleName().equals("teacher")) {

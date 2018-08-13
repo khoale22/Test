@@ -36,6 +36,9 @@ public class StudentController {
 		mm.addAttribute("list",studentService.resultStudent(userId) );
 		return "result";	
 	}
-	
-	
+   
+	@RequestMapping(value="/logout_stu" ,method =RequestMethod.GET)
+	public String logout() {
+		return "redirect:/";
+	}
 }

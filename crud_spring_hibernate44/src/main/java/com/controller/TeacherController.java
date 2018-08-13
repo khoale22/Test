@@ -41,6 +41,11 @@ public class TeacherController {
 		return "result_teacher";	
 		
 	}
+	@RequestMapping(value="/logout" , method =RequestMethod.GET)
+	public String logout() {
+		return "redirect:/";
+		
+	}
 	
 	@RequestMapping(value ="/deleteStudent" ,method = RequestMethod.GET)
 	public String delete(@RequestParam("userId") String userId) {
