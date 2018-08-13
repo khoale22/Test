@@ -25,6 +25,8 @@
 				<tr>
 					<th>SUBJECT_NAME</th>
 					<th>RESULT</th>
+					<th>ACTION</th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -32,12 +34,24 @@
 					<tr>
 						<td>${result.subject.subjectName}</td>
 						<td>${result.result}</td>
+
+						<c:choose>
+							<c:when test="${result.result>=5}">
+							<td><a href="register">register </a>
+								</td>
+							</c:when>
+                           <c:when test="${result.result<5}">
+                           <td>fail</td>
+                           </c:when>
+						</c:choose>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<form action="logout_stu" method="get"> <button type="submit" class="btn btn-dark btn-lg">Logout</button> </form> 
+		<form action="logout_stu" method="get">
+			<button type="submit" class="btn btn-dark btn-lg">Logout</button>
+		</form>
 	</div>
-	
+
 </body>
 </html>

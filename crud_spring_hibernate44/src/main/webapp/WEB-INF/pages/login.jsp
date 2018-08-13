@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -41,13 +42,14 @@
 			</form>
 
 		</div>
-		<div class="alert alert-warning alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert">&times;</button>
-			<strong>${error}</strong> 
-		</div>
-
+		<c:if test="${error != null}">
+			<div class="alert alert-warning alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>${error}</strong>
+			</div>
+		</c:if>
 	</div>
-   <%
+	<%
 		if (session.getAttribute("error") != null) {
 			session.invalidate();
 		}

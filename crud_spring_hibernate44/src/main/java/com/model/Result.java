@@ -73,7 +73,7 @@ public class Result implements java.io.Serializable {
 		this.user = user;
 	}
 
-	@Column(name = "result", nullable = false, precision = 22, scale = 0)
+	@Column(name = "result", nullable = true, precision = 22, scale = 0)
 	public double getResult() {
 		return this.result;
 	}

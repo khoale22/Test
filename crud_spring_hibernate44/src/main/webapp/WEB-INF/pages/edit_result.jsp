@@ -22,7 +22,7 @@
 			<form:hidden path="id.subjectId" />
 			<form:hidden path="id.userId" />
 			<form:input path="result" />			
-			<button type="submit" class="btn btn-success">Submit</button>
+			<button type="submit" class="btn btn-dark">Submit</button>
 		</form:form>
 	</div>
 </body>
