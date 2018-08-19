@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.model.Item"%>
+<%@page import="java.util.Map"%>
+<%@page import="com.model.Cart"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,42 +20,55 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
- <jsp:include page="header.jsp"></jsp:include> 
+	<%
+		Cart cart = (Cart) session.getAttribute("cart");
+		if (session.getAttribute("outOfProduct") != null) {
+			String outOfProduct = (String) session.getAttribute("outOfProduct");
+		}
+	%>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
 		<h2>Striped Rows</h2>
 		<p>The .table-striped class adds zebra-stripes to a table:</p>
 		<table class="table table-striped">
 			<thead style="background-color: green;">
 				<tr>
-				    <td>Image</td>
+					<td>Image</td>
 					<th>Product_Name</th>
 					<th>Price</th>
 					<th>Quantity</th>
 					<th>Total</th>
 				</tr>
 			</thead>
+
+			<%
+				for (Map.Entry<String, Item> list : cart.getCartItems().entrySet()) {
+			%>
 			<tbody>
 				<tr>
-				    <td><img src="images/images3.png" alt="Avatar" class="image" width="50px" height="50px"></td>
-					<td>Iphone</td>
-					<td>23</td>
-					<th>2</th>
-					<td>46</td>
+					<td><img
+						src="<%=list.getValue().getProduct().getProductImage()%>"
+						alt="Avatar" class="image" width="50px" height="50px"></td>
+					<td><%=list.getValue().getProduct().getProductName()%></td>
+					<td><%=list.getValue().getProduct().getProductPrice()%></td>
+					<th><%=list.getValue().getQuanlity()%></th>
+					<td><%=list.getValue().getQuanlity() * list.getValue().getProduct().getProductPrice()%></td>
 				</tr>
 			</tbody>
-			<tbody>
-				<tr>
-				    <td><img src="images/images3.png" alt="Avatar" class="image" width="50px" height="50px"></td>
-					<td>Iphone</td>
-					<td>23</td>
-					<th>2</th>
-					<td>46</td>
-				</tr>
-			</tbody>
+			<%
+				}
+			%>
 		</table>
-		<span style=" font-size: 50px;" > Sum is : <strong> 50$</strong> </span>
+		<span style="font-size: 50px;"> Sum is : <strong> <%=cart.totalCart()%>$
+		</strong>
+		</span>
 	</div>
-<%-- <jsp:include page="footer.jsp"></jsp:include> --%>
+	<%
+		if (session.getAttribute("outOfProduct") != null) {
+			session.invalidate();
+		}
+	%>
+	<%-- <jsp:include page="footer.jsp"></jsp:include> --%>
 
 </body>
 </html>

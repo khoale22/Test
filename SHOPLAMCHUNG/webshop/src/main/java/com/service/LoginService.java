@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.LoginDao;
-import com.model.Role;
-import com.model.User;
+import com.entity.Role;
+import com.entity.User;
 
 @Service
 public class LoginService {

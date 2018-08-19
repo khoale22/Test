@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-
-
 <link href="styles/product.css" rel="stylesheet" type="text/css"
 	media="all">
 
@@ -29,28 +28,30 @@
 	<p>Hover over the image to see the effect.</p>
 	
 	<div class="row">
+	<c:forEach var="product" items="${listProduct}">
 		<div class="col-sm-3">
 			<div class="container">
-				<img src="images/images3.png" alt="Avatar" class="image">
+				<img src="${product.productImage}" alt="Avatar" class="image">
 				<div class="overlay">
 					<div class="text">
-						<span> Name : <strong>abc </strong></span> <span> Price : <strong>5000$
-						</strong></span>
-						<button type="submit" style="background-color: red;">AddToCart</button>
+						<span> Name: <strong>${product.productName} </strong></span> <span> Price : <strong>${product.productPrice}$
+						</strong></span> <span> Quantity: <strong>${product.quantity} </strong></span>
+<!-- 						<button type="submit" style="background-color: red;">AddToCart</button> -->
+						<a href="cart/add?command=plus&productId=${product.productId}" class="btn btn-primary">AddToCart </a> 
 					</div>
 				</div>
 			</div>
 		</div>
+		</c:forEach>
 	</div>
-
-
+	
 	<div class="container" >
 		<ul class="pagination">
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
+			<li><a href="product?categoryId=${categoryId}&page=1">1</a></li>
+			<li><a href="product?categoryId=${categoryId}&page=2">2</a></li>
+			<li><a href="product?categoryId=${categoryId}&page=3">3</a></li>
+			<li><a href="product?categoryId=${categoryId}&page=4">4</a></li>
+			<li><a href="product?categoryId=${categoryId}&page=5">5</a></li>
 		</ul>
 	</div>
 
