@@ -52,7 +52,7 @@
 	</div>
 	<%
 		if (session.getAttribute("error") != null) {
-			session.invalidate();
+			session.removeAttribute("error");
 		}
 	%>
 

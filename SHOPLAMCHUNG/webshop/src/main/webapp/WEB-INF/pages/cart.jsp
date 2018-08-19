@@ -29,7 +29,12 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
 		<h2>Striped Rows</h2>
-		<p>The .table-striped class adds zebra-stripes to a table:</p>
+		<c:if test="${outOfProduct != null}">
+			<div class="alert alert-warning alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>${outOfProduct}</strong>
+			</div>
+		</c:if>
 		<table class="table table-striped">
 			<thead style="background-color: green;">
 				<tr>
@@ -65,7 +70,7 @@
 	</div>
 	<%
 		if (session.getAttribute("outOfProduct") != null) {
-			session.invalidate();
+			session.removeAttribute("outOfProduct");
 		}
 	%>
 	<%-- <jsp:include page="footer.jsp"></jsp:include> --%>
